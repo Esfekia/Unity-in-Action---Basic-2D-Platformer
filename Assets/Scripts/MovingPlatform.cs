@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEditor;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -32,5 +33,10 @@ public class MovingPlatform : MonoBehaviour
         if ((direction == 1 && trackPercent > .9f) || (direction == -1 && trackPercent < .1f)){
             direction *= -1;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, finishPos);
     }
 }

@@ -52,14 +52,39 @@ public class PlatformerPlayer : MonoBehaviour
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
+        MovingPlatform platform = null;
+        if (hit != null)
+        {
+            // check whether the platform under the player is a moving platform
+            platform = hit.GetComponent<MovingPlatform>();
+        }
+        
+        // either attach to the platform or clear transform.parent.
+        if (platform != null)
+        {
+            transform.parent = platform.transform;
+        }
+        else
+        {
+            transform.parent = null;
+        }
+            
+
         // speed is greater than zero even if velocity is negative
         anim.SetFloat("speed", Mathf.Abs(deltaX));
+
+        // default scale 1 if not on moving platform
+        Vector3 pScale = Vector3.one;
+        if (platform != null)
+        {
+            pScale = platform.transform.localScale;
+        }
 
         // floats aren't always exact, so compare using Approximately()
         if (!Mathf.Approximately(deltaX, 0))
         {
             // when moving, scale positive or negative 1 to face right or left
-            transform.localScale = new Vector3(Mathf.Sign(deltaX), 1, 1);
+            transform.localScale = new Vector3(Mathf.Sign(deltaX) /pScale.x, 1/pScale.y, 1);
         }
     }
 }
