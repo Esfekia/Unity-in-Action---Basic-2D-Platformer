@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 1587658421}
   - component: {fileID: 1587658420}
   - component: {fileID: 1587658419}
+  - component: {fileID: 1587658423}
   m_Layer: 0
   m_Name: OneWayPlatform
   m_TagString: Untagged
@@ -731,6 +732,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1587658423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587658418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc089f86e25a8ef4a9945ee4c4be6544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPos: {x: 0, y: 0, z: 0}
+  speed: 0.5
 --- !u!1 &1951803856
 GameObject:
   m_ObjectHideFlags: 0
